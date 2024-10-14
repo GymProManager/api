@@ -1,0 +1,36 @@
+{
+  "name": "gympro",
+  "version": "1.0.0",
+  "description": "API GYMPRO ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "local": "nodemon local.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "chumemo",
+  "license": "ISC",
+  "homepage": "",
+  "dependencies": {
+    "config": "^3.3.9",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-validator": "^7.0.1",
+    "mongoose": "^7.4.4",
+    "request": "^2.88.2",
+    "sib-api-v3-sdk": "^8.5.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0"
+  },
+  "devDependencies": {
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "nodemon": "^3.0.3"
+  }
+}

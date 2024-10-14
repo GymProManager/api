@@ -1,0 +1,4 @@
+{    
+  "mongoURI": "mongodb+srv://admingym:admingym1@clusterpersonal-cd3l0.mongodb.net/gympro?retryWrites=true&w=majority",
+  "jwtSecret": "secret"
+}
