@@ -35,7 +35,10 @@ const swaggerSpec = {
         url: "http://localhost:4003/",
       },
       {
-        url: "https://gympromanager.com",
+        url: "http://109.176.198.10:4003/",
+      },
+      {
+        url: "https://admin.gympromanager.com/api",
       }
     ],
   },
@@ -88,6 +91,7 @@ app.use("/api/clases", require("./routes/clases"));
 app.use("/api/entrenamiento", require("./routes/entrenamiento"));
 app.use("/api/marketing", require("./routes/marketing"));
 app.use("/api/recompensa", require("./routes/recompensas"));
+app.use("/api/wp", require("./routes/wp"));
 
 
 
