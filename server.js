@@ -92,7 +92,8 @@ app.use("/api/entrenamiento", require("./routes/entrenamiento"));
 app.use("/api/marketing", require("./routes/marketing"));
 app.use("/api/recompensa", require("./routes/recompensas"));
 app.use("/api/wp", require("./routes/wp"));
-
+app.use("/api/auth", require("./routes/auth"));
+app.use("/api/horario", require("./routes/horario"));
 
 
 if (process.env.NODE_ENV === "production") {

@@ -6,7 +6,8 @@ const Socio = require("../models/Socio"); // Asegúrate de que la ruta del model
 // Ruta para obtener todos los socios
 router.get("/", async (req, res) => {
   try {
-    const socioList = await Socio.find().populate("PerfilSocio");
+    // const socioList = await Socio.find().populate("PerfilSocio");
+    const socioList = await Socio.find();
     res.json(socioList);
   } catch (err) {
     console.error(err.message);
