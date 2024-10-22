@@ -22,7 +22,22 @@ router.post(
   ],
   async (req, res) => {
     try {
-      const nuevoEmpleado = new Empleado(req.body);
+      console.log(req.body);
+      
+      const {
+        nombre = '',
+        apellidos= '',
+        perfil= '',
+        foto= '',
+      } = req.body;
+
+      const nuevoEmpleado = new Empleado({ 
+        nombre
+        , apellidos
+        , perfil
+        , foto
+       });
+
       await nuevoEmpleado.save();
       res.json(nuevoEmpleado);
     } catch (err) {
@@ -116,15 +131,11 @@ module.exports = router;
  *         foto:
  *           type: string
  *           description: La URL de la foto del empleado
- *         perfil_empleado:
- *           type: string
- *           description: El perfil del empleado
  *       example:
  *         nombre: Juan
  *         apellidos: Pérez Gómez
- *         perfil: 1
+ *         perfil: "60c72b2f9b1e8b3a789e4a02"
  *         foto: "base64"
- *         perfil_empleado: "60c72b2f9b1e8b3a789e4a02"
  */
 
 // Ruta para obtener todos los empleados

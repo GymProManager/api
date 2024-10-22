@@ -124,6 +124,47 @@ router.get(
         }
     );
 
+// Ruta para obtener productos wordpress
+router.get(
+  "/orders-wp",
+  [
+      // Puedes agregar validaciones aquí si es necesario
+  ],
+      async (req, res) => {
+        try {
+          
+          // axios.post('https://gympromanager.com/app-products.php', {
+          //     token: 'Contraseña...',
+          // })
+          // .then(function (response) {
+          //   console.log(response.data);
+          //   res.json(response.data);
+          // })
+
+
+          var bodyFormData = new FormData();
+          bodyFormData.append('token','Contraseña...');
+          axios({
+              method: "post",
+              url: "https://gympromanager.com/app-orders.php",
+              data: bodyFormData,
+              headers: { "Content-Type": "multipart/form-data" },
+          })
+          .then(function (response) {
+            console.log(response.data);
+            res.json(response.data);
+          }).catch(function (response) {
+              //handle error
+              console.log(' error', response);
+            });
+  
+        } catch (err) {
+          console.error(err.message);
+          res.status(500).send("Error del servidor");
+        }
+      }
+  );
+
 
 module.exports = router;
 
@@ -215,6 +256,26 @@ module.exports = router;
  *     responses:
  *       200:
  *         description: Lista de productos de WordPress
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *       500:
+ *         description: Error del servidor
+ */
+
+/**
+ * @swagger
+ * /api/wp/orders-wp:
+ *   get:
+ *     summary: Obtener las ordenes de WordPress
+ *     tags:
+ *       - WordPress
+ *     responses:
+ *       200:
+ *         description: Lista de ordeens de WordPress
  *         content:
  *           application/json:
  *             schema:
