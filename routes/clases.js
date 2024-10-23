@@ -123,12 +123,12 @@ module.exports = router;
  */
 
 // Ruta para obtener todas las clases
-// @route   GET api/clase
+// @route   GET api/clases
 // @desc    Obtener todas las clases
 // @access  Público
 /**
  * @swagger
- * /api/clase:
+ * /api/clases:
  *   get:
  *     summary: Obtener todas las clases
  *     tags:
@@ -147,12 +147,12 @@ module.exports = router;
  */
 
 // Ruta para crear una nueva clase
-// @route   POST api/clase
+// @route   POST api/clases
 // @desc    Crear una nueva clase
 // @access  Público
 /**
  * @swagger
- * /api/clase:
+ * /api/clases:
  *   post:
  *     summary: Crear una nueva clase
  *     tags:
@@ -175,12 +175,12 @@ module.exports = router;
  */
 
 // Ruta para actualizar una clase por ID
-// @route   PUT api/clase/{id}
+// @route   PUT api/clases/{id}
 // @desc    Actualizar una clase por ID
 // @access  Público
 /**
  * @swagger
- * /api/clase/{id}:
+ * /api/clases/{id}:
  *   put:
  *     summary: Actualizar una clase por ID
  *     tags:
@@ -212,12 +212,12 @@ module.exports = router;
  */
 
 // Ruta para eliminar una clase por ID
-// @route   DELETE api/clase/{id}
+// @route   DELETE api/clases/{id}
 // @desc    Eliminar una clase por ID
 // @access  Público
 /**
  * @swagger
- * /api/clase/{id}:
+ * /api/clases/{id}:
  *   delete:
  *     summary: Eliminar una clase por ID
  *     tags:
@@ -239,12 +239,12 @@ module.exports = router;
  */
 
 // Ruta para eliminar múltiples clases por IDs
-// @route   DELETE api/clase/multiple
+// @route   DELETE api/clases/multiple
 // @desc    Eliminar múltiples clases por IDs
 // @access  Público
 /**
  * @swagger
- * /api/clase/multiple:
+ * /api/clases/multiple:
  *   delete:
  *     summary: Eliminar múltiples clases por IDs
  *     tags:
