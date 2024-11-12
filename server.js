@@ -95,6 +95,10 @@ app.use("/api/wp", require("./routes/wp"));
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/horario", require("./routes/horario"));
 
+app.use("/api/ficha", require("./routes/ficha"));
+app.use("/api/cuestionario", require("./routes/cuestionario"));
+app.use("/api/video-vimeo", require("./routes/videoVimeo"));
+
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
