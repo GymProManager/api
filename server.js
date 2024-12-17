@@ -38,7 +38,7 @@ const swaggerSpec = {
         url: "http://109.176.198.10:4003/",
       },
       {
-        url: "https://admin.gympromanager.com/api",
+        url: "https://admin.gympromanager.com/",
       }
     ],
   },
@@ -59,6 +59,8 @@ connectDB();
 // Middlewares
 app.use(cors());
 app.use(express.json({ extended: false }));
+app.use("/uploads", express.static("uploads"));
+
 app.use("/api-doc", swaggerUI.serve, swaggerUI.setup(swaggerJsDoc(swaggerSpec)));
 
 
@@ -98,6 +100,11 @@ app.use("/api/horario", require("./routes/horario"));
 app.use("/api/ficha", require("./routes/ficha"));
 app.use("/api/cuestionario", require("./routes/cuestionario"));
 app.use("/api/video-vimeo", require("./routes/videoVimeo"));
+
+app.use("/api/media", require("./routes/media"));
+app.use("/api/exerciseType", require("./routes/exerciseType"));
+app.use("/api/groupMuscle", require("./routes/groupMuscle"));
+app.use("/api/exercise", require("./routes/exercise"));
 
 
 if (process.env.NODE_ENV === "production") {
