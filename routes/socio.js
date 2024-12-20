@@ -15,6 +15,16 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/:id", async (req, res) =>  {
+  const { id } = req.params;
+  try {
+    const socio = await Socio.find({ _id: id});
+    res.json(socio);
+  } catch (err) {
+    res.status(500).send("Error del servidor");
+  }
+});
+
 // Ruta para crear un nuevo socio
 router.post(
   "/",
@@ -32,6 +42,8 @@ router.post(
     }
   }
 );
+
+
 
 // Ruta para actualizar un socio por ID
 router.put("/:id", async (req, res) => {
