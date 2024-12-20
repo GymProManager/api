@@ -106,8 +106,6 @@ res.status(200).json(exercise);
 
 router.delete("/:id", async (req, res) => {
   const { id } = req.params
-  console.log("id",id)
-  
   const exercise = await ModelExercise.findById(id)
   const _typeExercise = exercise.typeexercise;
   const _groupMuscle = exercise.groupmuscle;
@@ -141,7 +139,6 @@ router.post("/import", async (req, res) =>  {
     })
   }
   const exercise = await ModelExercise.find({ name: name});
-  console.log("exercise",exercise);
 
   if (exercise  && exercise.length > 0) {
     return res.status(400).json({
@@ -150,7 +147,6 @@ router.post("/import", async (req, res) =>  {
   }
   const exerciseType = await ModelExerciseType.find({name: typeexercise});
   if (exerciseType == null ) {
-    console.log(exerciseType);
     return res.status(400).json({
       error : `Tipo de ejercicio  ${typeexercise} no registrado.`
     })

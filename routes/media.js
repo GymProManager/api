@@ -55,7 +55,6 @@ router.post("/:id", upload.fields(
         { name: "cover", maxCount: 1 },
         { name: "image", maxCount: 1 }
     ]) ,  (req, res) => {
-        console.log("req", req.type);
 
     if (req.files){
         res.json({message: 'Image uploaded successfully'});
