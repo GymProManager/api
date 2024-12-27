@@ -14,6 +14,16 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/:id", async (req, res) =>  {
+  const { id } = req.params;
+  try {
+    const perfil = await PerfilSocio.find({ _id: id});
+    res.json(perfil);
+  } catch (err) {
+    res.status(500).send("Error del servidor");
+  }
+});
+
 // Ruta para crear un nuevo perfil de socio
 router.post(
   "/",
@@ -35,7 +45,7 @@ router.post(
 // Ruta para actualizar un perfil de socio por ID
 router.put("/:id", async (req, res) => {
   try {
-    const perfilSocio = await PerfilSocio.findById(req.params.id);
+    const perfilSocio = await PerfilSocio.findById({ _id: req.params.id});
 
     if (!perfilSocio) {
       return res.status(404).json({ msg: "Perfil de socio no encontrado" });
