@@ -29,21 +29,24 @@ router.put("/:id", async (req, res) => {
             console.log(err);
             return res.end("Error uploading file.");
         } else {
-           let exercise = await ModelExercise.findById({ _id: id})
-           req.files.forEach( function(f) {
-            let formatted_folder = f.path.split(path.sep).join('/');
-            let _file = "/"+ formatted_folder;
-            if (f.fieldname == "image"){
-                exercise.image = _file;
+            const {type} = req.body;
+            if (type == "exercise"){
+                let exercise = await ModelExercise.findById({ _id: id})
+                req.files.forEach( function(f) {
+                 let formatted_folder = f.path.split(path.sep).join('/');
+                 let _file = "/"+ formatted_folder;
+                 if (f.fieldname == "image"){
+                     exercise.image = _file;
+                 }
+                 if (f.fieldname == "cover"){
+                     exercise.cover =  _file;
+                 }
+                 if (f.fieldname == "miniature"){
+                     exercise.miniature =  _file;
+                 }
+                });
+                await exercise.save();
             }
-            if (f.fieldname == "cover"){
-                exercise.cover =  _file;
-            }
-            if (f.fieldname == "miniature"){
-                exercise.miniature =  _file;
-            }
-           });
-           await exercise.save();
            res.end('Image uploaded successfully');
         }
     });    
