@@ -5,9 +5,20 @@ const Socio = require("../models/Socio"); // Asegúrate de que la ruta del model
 
 // Ruta para obtener todos los socios
 router.get("/", async (req, res) => {
+  const { status } = req.query;
+  let filter = {};
+  if (status) {
+    filter = { fecha_alta: { $eq: null } };
+    if (status === "disabled") {
+      filter.fecha_alta = { $ne: null };
+    }
+    if (status === "all") {
+      filter = {};
+    }    
+  }
   try {
     // const socioList = await Socio.find().populate("PerfilSocio");
-    const socioList = await Socio.find();
+    const socioList = await Socio.find(filter);
     res.json(socioList);
   } catch (err) {
     console.error(err.message);
