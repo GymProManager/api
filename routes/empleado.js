@@ -14,6 +14,16 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/:id", async (req, res) =>  {
+  const { id } = req.params;
+  try {
+    const empleado = await Empleado.find({ _id: id});
+    res.json(empleado);
+  } catch (err) {
+    res.status(500).send("Error del servidor");
+  }
+});
+
 // Ruta para crear un nuevo empleado
 router.post(
   "/",
