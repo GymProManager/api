@@ -6,7 +6,9 @@ const empleadoSchema = mongoose.Schema({
   apellidos: { type: String, required: false },
   perfil: { type: String, required: false },
   foto: { type: String, required: false },
-  //perfil_empleado : { type: String, required: false }
+  fecha_alta: { type: Date, required: false },
+  fecha_inicio: { type: Date, required: false },
+  telefono: { type: String, required: false }
 });
 
 module.exports = mongoose.model("Empleado", empleadoSchema);

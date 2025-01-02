@@ -63,14 +63,17 @@ router.put("/:id", async (req, res) => {
     if (!empleado) {
       return res.status(404).json({ msg: "Empleado no encontrado" });
     }
-
+    console.log("body",req.body);
+    console.log("empleado",empleado);
+    
     // Actualiza los campos necesarios
     if (req.body.nombre) empleado.nombre = req.body.nombre;
     if (req.body.apellidos) empleado.apellidos = req.body.apellidos;
     if (req.body.perfil) empleado.perfil = req.body.perfil;
     if (req.body.foto) empleado.foto = req.body.foto;
-    if (req.body.perfil_empleado) empleado.perfil_empleado = req.body.perfil_empleado;
-
+    if (req.body.fecha_alta) empleado.fecha_alta = req.body.fecha_alta; 
+    if (req.body.fecha_inicio) empleado.fecha_inicio = req.body.fecha_inicio;
+    
     await empleado.save();
     res.json(empleado);
   } catch (err) {
